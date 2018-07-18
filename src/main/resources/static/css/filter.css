@@ -1,0 +1,125 @@
+.main-container {
+    padding: 15px;
+}
+
+fieldset {
+    border: 1px solid #ddd !important;
+    padding: 0.25em 0.5em 0.5em 0.5em !important;
+    margin: 0 0 0 0 !important;
+    -webkit-box-shadow: 0px 0px 0px 0px #000;
+    box-shadow: 0px 0px 0px 0px #000;
+}
+
+td, th {
+    padding: 15px 25px;
+}
+
+legend {
+    color: #BDBDBD;
+    width: auto;
+    padding: 0 10px;
+    border-bottom: none;
+    margin-bottom: 0;
+    font-size: 0.8rem !important;
+    font-weight: 400;
+}
+
+fieldset .date-group .form-group:not(.is-empty) input {
+    text-align: center;
+}
+
+.date-picker-left {
+    padding-left: 0 !important;
+    padding-right: 5px;
+}
+
+.date-picker-right {
+    padding-right: 0 !important;
+    padding-left: 5px;
+}
+
+.select-form {
+    margin-top: 22.3px;
+}
+
+#submit-btn {
+    margin-right: 15px;
+}
+
+#submit-btn, #reset-btn {
+    margin-top: 10px;
+}
+
+.filter-btn, .filter-btn:hover {
+    background: #fff !important;
+    border: none;
+    box-shadow: none;
+    padding-left: 0;
+    margin-top: 10px;
+    padding-right: 0;
+}
+
+.filter-btn i {
+    color: #1e3685;
+    font-size: 28px;
+}
+
+.filter-opts {
+    text-align: right;
+}
+
+.filter-content {
+    display: none;
+}
+
+.filter-content.filter-open {
+    display: block;
+}
+
+.filter-area {
+    background: #ffffff;
+    padding: 15px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+.filter-area, .table-area {
+    width: 1000px;
+    margin: auto;
+}
+
+.col {
+    margin-left: 0 !important;
+}
+
+.pagination li.disabled span {
+    cursor: default;
+    color: #999;
+}
+
+.table-area {
+    margin-top: 15px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    border: 1px solid #d0d0d0;
+    padding: 15px !important;
+}
+.table-area tbody tr.inactive-row{
+    opacity: 0.6;
+}
+
+.pagination-area {
+    text-align: center;
+}
+
+.page-info, .pagination-area {
+    margin-top: 25px;
+}
+
+thead {
+    background-color: white;
+}
+
+table>tbody>tr>td {
+    word-wrap: break-word !important;
+    max-width: 200px !important;
+}

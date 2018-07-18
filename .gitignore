@@ -1,0 +1,19 @@
+.gradle/
+.idea/
+build/
+node_modules/
+node_modules
+make/
+out/
+*.iml
+*.db
+
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+

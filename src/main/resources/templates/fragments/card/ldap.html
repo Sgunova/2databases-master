@@ -1,0 +1,196 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<div th:fragment="ldapFields">
+    <input type="hidden" name="id" th:field="${ldap.id}"/>
+    <div class="row">
+        <div class="col s12">
+            <fieldset>
+                <legend>Информация о сервере</legend>
+                <div class="col s12">
+                    <a class="clickable" title="Проверить подключение" onclick="LdapController.testConnection()">
+                        <i style="float: right" class="material-icons text-primary">autorenew</i></a>
+                </div>
+                <div class="col s6">
+                    <div class="input-field">
+                        <input id="name" name="name" type="text" required th:field="${ldap.name}"/>
+                        <label for="name">Имя</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="address" name="address" type="text" th:field="${ldap.address}"/>
+                        <label for="address">Адрес</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="port" name="port" type="text" required th:field="${ldap.port}"/>
+                        <label for="port">Порт</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="domain" name="domain" type="text" th:field="${ldap.domain}"/>
+                        <label for="domain">Корень домена</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="users-directory" name="users-directory" type="text"
+                               th:field="${ldap.usersDirectory}"/>
+                        <label for="users-directory">Директория c пользователями</label>
+                    </div>
+                </div>
+                <div class="col s6">
+                    <div class="input-field">
+                        <input id="groups-directory" name="groups-directory" type="text"
+                               th:field="${ldap.groupsDirectory}"/>
+                        <label for="groups-directory">Директория c группами</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="group-class" name="groupClass" type="text" th:field="${ldap.groupClass}"/>
+                        <label for="group-class">Класс групп</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="user-class" name="userClass" type="text" th:field="${ldap.userClass}"/>
+                        <label for="user-class">Класс пользователей</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="ldap-login" name="ldapLogin" type="text" th:field="${ldap.ldapLogin}"/>
+                        <label for="ldap-login">Логин для подключения к серверу</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="ldap-password" name="ldapPassword" type="password" th:value="${ldap.ldapPassword}"
+                               autocomplete="off"/>
+                        <label for="ldap-password">Пароль для подключения к серверу</label>
+                    </div>
+                </div>
+                <div class="col s4 center">
+                    <div class="input-field">
+                        <input type="checkbox" class="filled-in" id="credentials-auth" name="credentialsAuth"
+                               th:checked="${ldap.credentialsAuth}"/>
+                        <label for="credentials-auth">Использовать неанонимное подключение</label>
+                    </div>
+                </div>
+                <div class="col s4 center">
+                    <div class="input-field">
+                        <input type="checkbox" class="filled-in" id="role_from_group" name="roleFromGroup"
+                               th:checked="${ldap.roleFromGroup}"/>
+                        <label for="role_from_group">Связывать группы LDAP и роли в системе</label>
+                    </div>
+                </div>
+                <div class="col s4 center">
+                    <div class="input-field">
+                        <input type="checkbox" class="filled-in" id="ldap_readonly" name="readonly"
+                               th:checked="${ldap.readonly}"/>
+                        <label for="ldap_readonly">Только чтение</label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div class="col s12">
+            <fieldset>
+                <legend>Информация о атрибутах пользователя</legend>
+                <div class="input-field">
+                    <input id="attr-name" name="userAttributes.name" type="text"
+                           th:field="${ldap.userAttributes.name}" required/>
+                    <label for="attr-name">Имя</label>
+                </div>
+                <div class="input-field">
+                    <input id="attr-surname" name="userAttributes.surname" type="text"
+                           th:field="${ldap.userAttributes.surname}" required/>
+                    <label for="attr-surname">Фамилия</label>
+                </div>
+                <div class="input-field">
+                    <input id="attr-secondName" name="userAttributes.secondName" type="text"
+                           th:field="${ldap.userAttributes.secondName}"/>
+                    <label for="attr-secondName">Отчество</label>
+                </div>
+                <div class="input-field">
+                    <input id="attr-mail" name="userAttributes.mail" type="text"
+                           th:field="${ldap.userAttributes.mail}" required/>
+                    <label for="attr-mail">Электронная почта</label>
+                </div>
+                <div class="input-field">
+                    <input id="attr-login" name="userAttributes.login" type="text"
+                           th:field="${ldap.userAttributes.login}" required/>
+                    <label for="attr-login">Логин</label>
+                </div>
+            </fieldset>
+        </div>
+        <div class="col s12">
+            <table class="bordered">
+                <thead>
+                <tr>
+                    <th>Роль</th>
+                    <th>Группы пользователей</th>
+                    <th><a onclick="LdapController.getGroups()"
+                           class="clickable" title="Загрузить группы сервера"><i class="material-icons text-primary">file_download</i></a>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="perm-tr tr-input" th:each="role, iterator : ${roles}"
+                    th:if="${ldap.userGroups.isEmpty()}">
+                    <td id="role-input" th:value="${role}" th:text="${role.getStringName()}"></td>
+                    <td id="actions-input no-padding">
+                        <input multiple type="text" th:name="${'userGroups['+iterator.index+'].groups'}"
+                               placeholder="Введите группы">
+                    </td>
+                    <td></td>
+                </tr>
+                <tr class="perm-tr tr-select" th:each="role, iterator : ${roles}" th:with="index = ${iterator.index}"
+                    th:hidden="${ldap.userGroups.isEmpty()}">
+                    <input th:value="${role.toString()}" th:name="${'userGroups['+index+'].role'}" hidden>
+                    <td id="role-select" th:text="${role.getStringName()}"></td>
+                    <td id="actions-select no-padding">
+                        <select multiple th:if="${ldap.userGroups.size() > index}"
+                                th:name="${'userGroups['+index+'].groups'}">
+                            <option th:each="group : ${ldap.getGroups()}"
+                                    th:value="${group}" th:text="${group}"
+                                    th:selected="${ldap.userGroups[index].groups.contains(group)}">
+
+                            </option>
+                        </select>
+                        <select multiple th:if="${ldap.userGroups.size() <= index}"
+                                th:name="${'userGroups['+index+'].groups'}">
+                            <option th:each="group : ${ldap.getGroups()}"
+                                    th:value="${group}" th:text="${group}">
+
+                            </option>
+                        </select>
+                    </td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="ldap-modal" class="modal overflow">
+        <div class="modal-content">
+            <h4>Результат проверки соединения</h4>
+            <p>Группы должны быть связаны с пользователями по полю 'member',
+                в котором должен быть указан путь к пользователю</p>
+            <table class="bordered" id="ldap-table">
+                <thead>
+                <tr>
+                    <th>Группа</th>
+                    <th>Количество найденных пользователей</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="modal-footer">
+            <a class="modal-action modal-close waves-effect waves-light btn-flat btn-cancel">Отмена</a>
+        </div>
+    </div>
+
+    <div class="buttons-area">
+        <button onclick="LdapController.deactivate()"
+                th:if="${ldap.active == true}"
+                type="button" class="waves-effect waves-light btn red">Отключить
+        </button>
+        <button onclick="LdapController.activate()"
+                th:if="${ldap.active != true}"
+                type="button" class="waves-effect waves-light btn green">Активировать
+        </button>
+        <button type="submit" class="waves-effect waves-light btn">Принять</button>
+    </div>
+    <div th:replace="fragments/error :: errorModalFragment"></div>
+</div>
+</html>

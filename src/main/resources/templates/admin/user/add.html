@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/head :: head(~{::title},~{::link}, ~{::script})">
+    <title>Добавление пользователя</title>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/form.css}"/>
+
+    <script th:src="@{/static/js/validate_fields.js}"></script>
+    <script th:src="@{/static/js/admin/user/user-service.js}"></script>
+    <script th:src="@{/static/js/admin/user/user-controller.js}"></script>
+</head>
+
+<body>
+<header th:replace="fragments/header :: header(users, admin)"></header>
+
+<div class="form-body big-form">
+    <nav class="breadcrumb-nav">
+        <div class="nav-wrapper">
+            <div class="col s12">
+                <a th:href="@{/admin/users}" class="breadcrumb">Реестр пользователей</a>
+                <a th:href="@{/admin/users/add}" class="breadcrumb">Добавление пользователя</a>
+            </div>
+        </div>
+    </nav>
+    <form id="user-add-form" class="form-horizontal row" method="POST" th:action="${url}">
+        <input type="hidden" name="id" th:field="${user.id}"/>
+        <fieldset>
+            <legend>Данные пользователя</legend>
+            <div class="col s4">
+                <div class="input-field">
+                    <input id="surname" name="surname" type="text"  class="required validate"
+                           maxlength="100" th:field="${user.surname}"/>
+                    <label for="surname">Фамилия</label>
+                </div>
+                <div class="input-field">
+                    <input id="name" name="name" type="text"
+                           th:field="${user.name}" class="required validate" maxlength="100"/>
+                    <label for="name">Имя</label>
+                </div>
+                <div class="input-field">
+                    <input id="second-name" name="secondName" type="text"
+                           maxlength="100" th:field="${user.secondName}"/>
+                    <label for="second-name">Отчество</label>
+                </div>
+            </div>
+            <div class="col s4">
+                <div class="input-field">
+                    <input id="login" name="login"
+                           maxlength="20"
+                           type="text"  class="required validate" th:field="${user.login}"/>
+                    <label for="login">Логин</label>
+                </div>
+                <div class="input-field">
+                    <input id="email" name="email"
+                           maxlength="256" class="required email validate" type="email" th:field="${user.mail}"/>
+                    <label for="email">Электронная почта</label>
+                </div>
+                <div class="input-field">
+                    <select id="role" th:field="${user.role}" name="role"  required>
+                        <option th:value="${null}">Не назначена</option>
+                        <option th:each="r : ${roles}"
+                                th:value="${r.toString()}"
+                                th:text="${r.getStringName()}"></option>
+                    </select>
+                    <label for="role">Роль:</label>
+                </div>
+            </div>
+            <div class="col s4">
+                <div class="input-field">
+                    <input type="password" id="password" name="password"  class="required validate" maxlength="20"/>
+                    <label for="password">Пароль</label>
+                </div>
+                <div class="input-field">
+                    <input type="password" id="confirmPassword"
+                           name="confirmPassword"  class="required validate" maxlength="20"/>
+                    <label for="confirmPassword">Повторите пароль</label>
+                </div>
+                <div class="input-field">
+                    <select id="ldaps" th:field="${user.idLdap}" name="idLdap">
+                        <option th:value="${null}">Внутренний</option>
+                        <option th:each="r : ${ldaps}"
+                                th:value="${r.id}"
+                                th:text="${r.name}"></option>
+                    </select>
+                    <label for="ldaps">Метод авторизации</label>
+                </div>
+            </div>
+            <div class="buttons-area col s12">
+                <button type="button" class="waves-effect waves-light btn" onclick="UserController.addUserEvent()">Добавить</button>
+            </div>
+            <div class="col s12">
+                <div th:replace="fragments/error :: errorFragment"></div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<div id="ldap-modal" class="modal">
+    <div class="modal-content">
+        <h4>Выберите ldap-сервер, для добавления пользователя</h4>
+        <div class="input-field">
+            <select id="ldap-list"></select>
+            <label for="ldap-list">LDAP-сервер</label>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-action modal-close waves-effect waves-light btn-flat btn-cancel">Отмена</a>
+        <a id="confirm-btn" class="modal-action modal-close waves-effect waves-light btn-flat"
+           onclick="UserController.addUser()">Принять</a>
+    </div>
+</div>
+
+<div th:replace="fragments/error :: errorModalFragment"></div>
+</body>
+</html>

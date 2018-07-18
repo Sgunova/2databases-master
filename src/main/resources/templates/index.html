@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      th:with="title='Java Web Intro'">
+<head th:replace="fragments/head :: head(~{::title},~{::link}, ~{::script})">
+    <title>Java Web Intro</title>
+</head>
+<body>
+<header th:replace="fragments/header :: header(main, user)"></header>
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col m12">
+                <div class="card-panel">
+                    <p class="flow-text center-align">
+                        Добро пожаловать *,..,*
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

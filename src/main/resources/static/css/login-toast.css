@@ -1,0 +1,10 @@
+#toast-container {
+    top: auto !important;
+    right: auto !important;
+    bottom: 30%;
+    left: 37%;
+}
+
+#toast-container .toast {
+    background-color: red;
+}

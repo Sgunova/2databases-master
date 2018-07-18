@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml"
+      th:with="title='Java Web Intro'">
+<head th:replace="fragments/head :: head(~{::title},~{::link}, ~{::script})">
+    <title>Java Web Intro</title>
+</head>
+<body>
+<header th:replace="fragments/header :: header(main, user)"></header>
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col m12">
+                <h1>Add/Edit Entry</h1>
+                <form action="#" th:action="@{${action}}" th:object="${entity}" METHOD="POST">
+
+                    <p th:if="*{id}!=null">Id: <input type="text" th:field="*{id}" th:value="*{id}"/></p>
+                    <p>Name: <input type="text" th:field="*{name}" th:value="*{name}"/></p>
+                    <select
+                            th:field="*{firstDataSourceEntity}">
+                        <option value="">---</option>
+                        <!--/*@thymesVar id="op" type="org.communis.javawebintro.first.entity.FirstDataSourceEntity"*/-->
+                        <option th:each="op :${wired}"
+                                th:value="${op.id}"
+                                th:text="${op.name}"></option>
+                    </select>
+                    <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

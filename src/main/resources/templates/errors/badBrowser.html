@@ -1,0 +1,32 @@
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" type="text/css" th:href="@{/lib/components/materialize/css/materialize.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/json-viewer.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/languages.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main_style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/sidebar.css}"/>
+    <link rel="icon" th:href="@{/img/favicon.png}" type="image/png">
+    <link rel="shortcut icon" th:href="@{/img/favicon.png}" type="image/png">
+
+    <script>
+        window.location.replace("/");
+    </script>
+</head>
+<body>
+<header th:replace="fragments/header :: headerFragment(main, user)"></header>
+
+<div class="error-page-div">
+    <h1 class="error-code" >Для работы с сайтом необходима поддержка JavaScript</h1>
+    <p class="error-page-message" >Чтобы использовать все возможности сайта, загрузите и установите последнюю версию браузера</p>
+</div>
+</body>
+</html>

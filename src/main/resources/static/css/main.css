@@ -1,0 +1,351 @@
+/*body {
+    padding-top: 70px;
+}*/
+
+nav, .side-nav .collapsible-body > ul:not(.collapsible) > li.active,
+.side-nav.fixed .collapsible-body > ul:not(.collapsible) > li.active,
+.btn, .btn-floating, .picker__date-display, .picker__day--selected,
+.picker__day--selected:hover, .picker--focused .picker__day--selected, .pagination li.active {
+    background-color: #1e3685;
+}
+
+.btn:focus, .btn-large:focus,
+.btn-floating:focus {
+    background-color: #15255b;
+}
+
+.btn:hover, .btn-floating:hover {
+    background-color: #233e9a;
+}
+
+.picker__nav--prev:hover,
+.picker__nav--next:hover {
+    background: #8295d3;
+}
+
+.picker__weekday-display {
+    background-color: #172a68;
+}
+
+input:not([type]):focus:not([readonly]),
+input[type=text]:focus:not([readonly]),
+input[type=password]:focus:not([readonly]),
+input[type=email]:focus:not([readonly]),
+input[type=url]:focus:not([readonly]),
+input[type=time]:focus:not([readonly]),
+input[type=date]:focus:not([readonly]),
+input[type=datetime]:focus:not([readonly]),
+input[type=datetime-local]:focus:not([readonly]),
+input[type=tel]:focus:not([readonly]),
+input[type=number]:focus:not([readonly]),
+input[type=search]:focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]),
+input.valid:focus {
+    border-bottom: 1px solid #1e3685;
+    box-shadow: 0 1px 0 0 #1e3685;
+}
+
+input:not([type]):focus:not([readonly]) + label,
+input[type=text]:focus:not([readonly]) + label,
+input[type=password]:focus:not([readonly]) + label,
+input[type=email]:focus:not([readonly]) + label,
+input[type=url]:focus:not([readonly]) + label,
+input[type=time]:focus:not([readonly]) + label,
+input[type=date]:focus:not([readonly]) + label,
+input[type=datetime]:focus:not([readonly]) + label,
+input[type=datetime-local]:focus:not([readonly]) + label,
+input[type=tel]:focus:not([readonly]) + label,
+input[type=number]:focus:not([readonly]) + label,
+input[type=search]:focus:not([readonly]) + label,
+textarea.materialize-textarea:focus:not([readonly]) + label {
+    color: #1e3685;
+}
+
+.dropdown-content li > a, .dropdown-content li > span {
+    color: #1e3685;
+}
+
+.picker__day.picker__day--today, .picker__clear {
+    color: #1e3685;
+}
+
+[type="checkbox"]:checked + label:before {
+    border-right: 2px solid #1e3685;
+    border-bottom: 2px solid #1e3685;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.clickable:hover {
+    background-color: #f5f5f5;
+}
+
+.row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.userView {
+    background: #1e3685;
+    padding: 32px 16px 0 !important;
+}
+
+.side-nav .collapsible-header {
+    padding: 0 16px;
+}
+
+.side-nav li > a {
+    padding: 0 16px;
+}
+
+.user-more-btn, .user-more-btn:hover {
+    background: #1e3685 !important;
+    border: none;
+    box-shadow: none;
+    float: right;
+}
+
+.navbar-fixed {
+    z-index: 999;
+}
+
+.alert {
+    margin-top: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+
+.alert-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+
+.welcome-text {
+    text-align: center;
+    padding-top: 3%
+}
+
+.caption {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.caption h4 {
+    margin-top: 0;
+}
+
+.fixed-action-btn {
+    z-index: 997;
+}
+
+.not-clickable {
+    cursor: default;
+}
+
+.underline-link {
+    text-decoration: underline;
+}
+
+.picker__clear {
+    padding: 0 1rem;
+}
+
+.picker__today {
+    color: #343434;
+    font-size: 1rem;
+}
+
+.modal {
+    margin: 100px auto auto;
+    overflow-y: inherit;
+}
+
+.modal a.modal-action:not(.btn-cancel) {
+    background-color: #1e3685 !important;
+    color: #fff;
+}
+
+.modal .modal-footer {
+    padding: 4px 10px;
+}
+
+.collapsible-header i {
+    float: right !important;
+    margin: 0 !important;
+}
+
+.login-title {
+    background-color: #1e3685;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.login-title p {
+    text-align: center;
+}
+
+.login-form {
+    padding: 0 !important;
+}
+
+.login-body {
+    padding: 15px 35px;
+}
+
+.login-body .buttons-area {
+    text-align: left;
+}
+
+.btn-cancel {
+    background-color: #d2d2d2;
+    color: #000000;
+}
+
+.btn-cancel:hover {
+    background-color: #d2d2e2;
+}
+
+.breadcrumb:before {
+    color: #777;
+}
+
+.breadcrumb {
+    color: #1e3685;
+}
+
+.breadcrumb-nav {
+    background-color: white;
+}
+
+.breadcrumb-nav {
+    box-shadow: none;
+}
+
+.breadcrumb:last-child {
+    color: #777;
+}
+
+.breadcrumb:last-child:hover {
+    color: #1e3685;
+}
+
+.breadcrumb:hover {
+    color: #777;
+}
+
+#username-label:after, #password-label:after {
+    position: relative;
+}
+
+input.valid {
+    border-bottom: 1px solid #9e9e9e !important;
+    box-shadow: none !important;
+}
+
+input.invalid:focus {
+    border-bottom: 1px solid #F44336 !important;
+    box-shadow: 0 1px 0 0 #F44336 !important;
+}
+
+.download-icon {
+    width: 529.5px;
+    margin: auto;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+}
+
+.download-icon:hover {
+    border-bottom: 3px solid #1e3685;
+}
+
+.welcome-element {
+    margin-bottom: 35px;
+}
+
+.welcome-element img {
+    margin-bottom: 15px;
+    height: 300px;
+}
+
+.welcome-element a {
+    display: block;
+}
+
+.welcome-info {
+    text-align: center;
+}
+
+.welcome-info i {
+    color: #1e3685;
+    font-size: 100px;
+    user-select: none;
+}
+
+.welcome-info span:first-of-type {
+    color: #1e3685;
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.login-error i {
+    color: red;
+    vertical-align: sub;
+}
+
+.login-error span {
+    color: red;
+}
+
+.error-page-div {
+    text-align: center;
+    margin-top: 200px;
+}
+
+.error-code {
+    font-size: 64px;
+    color: #1e3685;
+    margin: 0;
+}
+
+.error-page-div i {
+    color: #1e3685;
+    font-size: 64px;
+}
+
+.error-page-message {
+    font-size: 24px;
+    margin: 0;
+}
+
+.modal .modal-footer .btn-flat {
+    float: none;
+}
+
+.modal-footer {
+    text-align: right;
+}
+
+/*top menu*/
+.nav-content {
+    width: 1000px;
+    margin: auto;
+}
+
+.modal {
+    overflow: visible;
+}

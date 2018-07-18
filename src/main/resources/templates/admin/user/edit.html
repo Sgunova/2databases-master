@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/head :: head(~{::title},~{::link}, ~{::script})">
+    <title>Изменение пользователя</title>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/form.css}"/>
+
+    <script th:src="@{/static/js/validate_fields.js}"></script>
+    <script th:src="@{/static/js/admin/user/user-service.js}"></script>
+    <script th:src="@{/static/js/admin/user/user-controller.js}"></script>
+</head>
+<body>
+<header th:replace="fragments/header :: header(users, admin)"></header>
+
+<div th:replace="fragments/card/user :: userFields('admin/users/')"></div>
+
+</body>
+</html>

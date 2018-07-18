@@ -1,0 +1,16 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<div th:fragment="errorFragment" id="error" class="alert alert-danger fade in" hidden>
+    <span></span>
+</div>
+<div th:fragment="errorModalFragment" id="error-modal" class="modal">
+    <div class="modal-content">
+        <h4>Ошибка!</h4>
+        <p></p>
+    </div>
+    <div class="modal-footer">
+        <a onclick="$('#error-modal').modal('close');"
+           class="modal-action modal-close waves-effect waves-light btn-flat">Закрыть</a>
+    </div>
+</div>
+</html>

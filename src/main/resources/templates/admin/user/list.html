@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sd="http://www.thymeleaf.org/spring-data"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/head :: head(~{::title},~{::link}, ~{::script})">
+    <title>Реестр пользователей</title>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/filter.css}"/>
+
+    <script th:src="@{/static/lib/floatThead/jquery.floatThead.min.js}"></script>
+    <script th:src="@{/static/js/filter.js}"></script>
+</head>
+<body>
+<header th:replace="fragments/header :: header(users, admin)"></header>
+
+<div class="col s12 main-container">
+    <form th:action="@{/admin/users}" method="get" th:object="${filter}">
+        <div class="filter-area">
+            <div th:replace="fragments/filter :: filter('/admin/users/add', '/admin/users',  'Реестр пользователей')"></div>
+            <div th:class="${'filter-content '+ (filter.isFilterExist() ? 'filter-open' : '')}">
+                <div class="row row-eq-height">
+                    <div class="col s3">
+                        <div class="input-field select-form">
+                            <select th:field="*{role}">
+                                <option th:value="${null}">Все</option>
+                                <option th:each="r : ${roles}"
+                                        th:value="${r.toString()}"
+                                        th:text="${r.getStringName()}"></option>
+                            </select>
+                            <label>Роль</label>
+                        </div>
+                    </div>
+                    <div class="col s3">
+                        <div class="input-field select-form">
+                            <select th:field="*{status}">
+                                <option th:value="${null}">Все</option>
+                                <option th:each="s : ${statuses}"
+                                        th:value="${s.toString()}"
+                                        th:text="${s.getStringName()}"></option>
+                            </select>
+                            <label>Статус:</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="table-area">
+        <table class="bordered">
+            <thead>
+            <tr>
+                <th>ФИО</th>
+                <th>Логин</th>
+                <th>Почта</th>
+                <th>Роль</th>
+                <th>Последняя активность</th>
+                <th>Статус</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:class="${user.isActive()} ? 'clickable' : 'clickable inactive-row'" th:each="user : ${page}"
+                th:onclick="'request(\'' + @{|/admin/users/${user.id}|}+ '\');'">
+                <td th:text="|${user.getFio()}|"></td>
+                <td th:text="${user.login}"></td>
+                <td th:text="${user.mail}"></td>
+                <td th:text="${user.role!=null ? user.role.getStringName() : ''}"></td>
+                <td th:text="|${#dates.format(user.dateLastOnline,'dd.MM.yyyy HH:mm')}|"></td>
+                <td th:text="${user.status.getStringName()}"></td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="col s6 no-padding page-info">
+            <div sd:pagination-summary="">info</div>
+        </div>
+    </div>
+    <div th:replace="fragments/pagination :: pagination"></div>
+</div>
+
+</body>
+</html>

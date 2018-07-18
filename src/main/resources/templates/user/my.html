@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/head :: head(~{::title},~{::link}, ~{::script})">
+    <title>Персональные данные</title>
+
+    <script th:src="@{/js/validate_fields.js}"></script>
+    <script th:src="@{/js/admin/user/user-controller.js}"></script>
+</head>
+<body>
+<header th:replace="fragments/header :: header(my, user)"></header>
+
+<div class="main-container">
+    <div class="main-content">
+        <div class="main-content-inner">
+            <div class="page-content">
+                <div class="col-xs-12">
+                    <div th:replace="fragments/userFields :: userFields('my/')"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<link rel="stylesheet" type="text/css" th:href="@{/css/form.css}"/>
+</body>
+</html>

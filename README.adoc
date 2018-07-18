@@ -1,0 +1,25 @@
+= 2 Databases
+
+== Базовые параметры
+* конфигурация SpringBoot - src/main/resources/application.yaml
+* администратор приложения
+    ** логин: root
+    ** пароль: 123456
+* оператор приложения
+    ** логин: operator
+    ** пароль: 123456
+
+== Префикс конфигурации для подключения к 2 бд:
+    - spring.first.*
+    - spring.second.*
+== Префикс конфигурации для Liquibase для баз сущностей:
+    - spring.first.liquibase.*
+    - spring.second.liquibase.*
+
+== Сущности:
+    сущности основной бд описаны в пакете:
+        org.communis.javawebintro.entity
+    сущности хранящиеся в 1 бд описаны в пакете:
+        org.communis.javawebintro.first.entity
+    сущности хранящиеся в 2 бд описаны в пакете
+        org.communis.javawebintro.second.entity

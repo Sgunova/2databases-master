@@ -1,0 +1,15 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head(~{::title},~{::link}, ~{::script})">
+    <title th:text="|Ошибка ${errorCode}|"></title>
+</head>
+<body>
+<header th:replace="fragments/header :: header(error, user)"></header>
+
+<div class="error-page-div">
+    <h1 class="error-code" th:text="|Ошибка ${errorCode}|">Ошибка 404</h1>
+    <p class="error-page-message" th:text="${errorMessage}">Страница не найдена</p>
+</div>
+
+</body>
+</html>

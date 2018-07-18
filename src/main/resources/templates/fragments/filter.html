@@ -1,0 +1,26 @@
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns="http://www.w3.org/1999/xhtml">
+<div th:fragment="filter(addUrl, resetUrl, caption)" class="panel-heading">
+    <div class="row caption">
+        <h4 class="col s12" th:text="${caption}"></h4>
+    </div>
+    <div class="row row-eq-height">
+        <div class="input-dataField col s8 no-padding">
+            <input type="text" name="search" maxlength="20" class="form-control" placeholder="Поиск"
+                   th:dataField="*{search}">
+        </div>
+        <div class="input-dataField col s4 filter-opts">
+            <button id="submit-btn" type="submit" class="waves-effect waves-light btn">Поиск</button>
+            <a th:href="@{${resetUrl}}" id="reset-btn" type="button" class="waves-effect waves-light btn btn-cancel">Сброс</a>
+            <a class="btn filter-btn"><i class="material-icons">filter_list</i></a>
+        </div>
+    </div>
+    <div th:if="${addUrl != null}" class="fixed-action-btn">
+        <a th:href="@{${addUrl}}" class="btn-floating btn-large">
+            <i class="large material-icons">add</i>
+        </a>
+    </div>
+
+</div>
+</html>

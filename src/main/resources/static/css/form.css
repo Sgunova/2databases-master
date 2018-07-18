@@ -1,0 +1,332 @@
+.form-horizontal .form-group {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.form-body, .login-form {
+    background: #ffffff;
+    padding: 24px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    border: 0;
+    margin: 15px auto;
+}
+
+.login-form {
+    margin: auto !important;
+}
+
+.form-body {
+    width: 1000px;
+}
+
+.login-form {
+    width: 40%;
+}
+
+[type="checkbox"].filled-in:checked + label:after {
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #1e3685;
+    background-color: #1e3685;
+    z-index: 0;
+}
+
+[type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {
+    background-color: #1e3685;
+}
+
+[type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:before, [type="radio"].with-gap:checked + label:after {
+    border: 2px solid #1e3685;
+}
+
+.control-label {
+    padding-top: 0 !important;
+}
+
+fieldset {
+    border: 1px solid #ddd !important;
+    padding: 15px !important;
+    /*margin: 0 0 0 0 !important;*/
+    margin-bottom: 10px;
+    -webkit-box-shadow: 0px 0px 0px 0px #000;
+    box-shadow: 0px 0px 0px 0px #000;
+    word-wrap: break-word;
+}
+
+fieldset.full-height {
+    height: 100%;
+}
+
+textarea {
+    padding-right: 5px !important;
+    padding-left: 5px !important;
+    width: 100%;
+    background: none;
+    border: 1px solid #ddd;
+}
+
+legend {
+    font-size: 1.2em !important;
+    font-weight: bold !important;
+    text-align: left !important;
+    width: auto;
+    padding: 0 10px;
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+/*fieldset:hover legend {*/
+/*color: #1e3685;*/
+/*}*/
+
+fieldset legend {
+    color: #777;
+}
+
+.buttons-area, .attr-area {
+    margin-top: 20px !important;
+}
+
+.buttons-area, .link-div, .login-title {
+    text-align: center;
+}
+
+.login-title {
+    font-size: 24px;
+    font-weight: 400;
+    text-align: left;
+}
+
+.link {
+    cursor: pointer;
+    color: #1e3685;
+}
+
+.date-link:not(:first-of-type) {
+    margin-left: 1%;
+}
+
+.link-div:first-of-type {
+    text-align: left;
+}
+
+.link-div:last-of-type {
+    text-align: right;
+}
+
+pre {
+    max-width: 360px;
+    background-color: white;
+    height: 300px;
+    border: none;
+    padding-left: 5%
+}
+
+pre li {
+    max-width: 250px;
+}
+
+/*.btn:not(.user-more-btn) {
+    width: 250px;
+}*/
+
+.no-resize {
+    resize: none;
+}
+
+.form-group.col-sm-12 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.col-sm-6:first-of-type {
+    padding-left: 0;
+}
+
+.col-sm-6:last-of-type {
+    padding-right: 0;
+}
+
+.text-primary {
+    color: #1e3685;
+}
+
+.not-found-error {
+    float: right;
+    margin-top: 3px;
+    font-size: 16px;
+}
+
+.btn-big {
+    width: 300px !important;
+}
+
+.file-path-wrapper {
+    padding-left: 0 !important;
+}
+
+.file-path {
+    cursor: pointer;
+}
+
+td input {
+    line-height: 20px;
+    background-image: none;
+    width: 100%;
+    padding-left: 5px;
+    margin: 0 !important;
+    border: 0 !important;
+    height: 100% !important;
+}
+
+.attribute {
+    color: #212121;
+    margin-bottom: 0;
+}
+
+.attr-area .attribute {
+    margin-top: 0;
+}
+
+.value {
+    color: #777;
+    font-size: 16px;
+}
+
+.file-btn {
+    margin-top: 10px;
+}
+
+.file-btn .btn-floating {
+    background-color: white;
+}
+
+.file-btn .btn-floating i {
+    background-color: #eeeeee;
+    color: #a4a4a4;
+}
+
+.attrs-table {
+    border: 1px solid #d0d0d0;
+}
+
+.bordered td {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    word-wrap: break-word;
+}
+
+.file-area {
+    text-align: center;
+}
+
+.file-area span {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+    color: #1e3685;
+}
+
+.file-area a {
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.file-area:hover {
+    background-color: #f5f5f5;
+}
+
+.attachments-area {
+    border: 1px solid #d0d0d0;
+    display: flow-root;
+}
+
+.attach-remove {
+    text-align: right;
+    color: #1e3685;
+}
+
+.attach-remove:hover {
+    color: #777;
+}
+
+.file-area a i:not(.clear-attach) {
+    color: #1e3685;
+    font-size: 60px;
+}
+
+.file-area.file-add {
+    height: 112px;
+}
+
+.file-area.file-add i {
+    margin-top: 30px;
+}
+
+.breadcrumb-nav .nav-wrapper .col {
+    margin-bottom: 4px;
+}
+
+.buttons-area .btn:not(:last-of-type) {
+    margin-right: 20px;
+}
+
+.for-file-wrap {
+    position: initial !important;
+}
+
+.for-file-wrap::after {
+    color: black !important;
+    content: attr(data-error) !important;
+    opacity: 1 !important;
+}
+
+input[type="radio"]:not(:checked).invalid + label:before,
+input[type="checkbox"]:not(:checked).invalid + label:before {
+    border-color: red;
+}
+
+.attr-area a.print {
+    float: right;
+    cursor: pointer;
+    color: #1e3685;
+}
+
+.attr-area a.print:hover {
+    cursor: pointer;
+    color: #777;
+}
+.dynamic-fields input + label{
+    font-weight: 700;
+    color: #000 !important;
+}
+.dynamic-fields input:disabled {
+    color: #000;
+    cursor: not-allowed;
+}
+
+.dynamic-fields input:not(:disabled) {
+    color: #312580;
+    border-bottom: 1px solid #312580;
+    box-shadow: 0 1px 0 0 #312580;
+    cursor: pointer;
+}
+span.attribute {
+    font-weight: 600;
+}
+
+i.clear-attach {
+    float: right;
+    color: #1e3685;
+    cursor: pointer;
+}
+
+i.clear-attach:hover {
+    color: #777;
+}
+
+.modal.overflow {
+    overflow: auto;
+}
